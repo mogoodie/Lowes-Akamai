@@ -1,0 +1,19 @@
+Automate Proxy Server Settings In Linux
+If you use the same proxy server settings for the https, http and ftp traffic, you can use the following commands to set and unset the proxy settings:
+
+$ export {http,https,ftp}_proxy="http://PROXY_SERVER:PORT"
+$ unset {http,https,ftp}_proxy
+If you use a proxy server often, you can create Bash functions as follows (add to your ~/.bashrc file):
+
+# Set Proxy
+function setproxy() {
+    export {http,https,ftp}_proxy="http://PROXY_SERVER:PORT"
+}
+
+# Unset Proxy
+function unsetproxy() {
+    unset {http,https,ftp}_proxy
+}
+Reload your ~/.bashrc file.
+
+$ source ~/.bashrc
